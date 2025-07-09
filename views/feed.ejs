@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Feed</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <% if (locals.postFeed.length === 0) { %>
+  <p class="empty-feed">Feed is empty!</p>
+<% } else { %>
+  <ul class="post-list">
+    <% for (var i = 0; i < postFeed.length; i++) { %>
+      <li class="post-item">
+        <div class="post-content">
+          <%= postFeed[i] %>
+        </div>
+        <div class="button-group">
+          <form action="/delete" method="POST" style="display: inline;">
+            <input type="hidden" name="index" value="<%= i %>">
+            <input type="submit" value="Delete">
+          </form>
+          <form action="/edit/<%= i %>" method="GET" style="display: inline;">
+            <input type="submit" value="Edit">
+          </form>
+        </div>
+      </li>
+    <% } %>
+  </ul>
+<% } %>
+
+    <form action="/createpost" method="GET">
+        <input type="submit" value="Create another post">
+    </form>
+     <form action="/" method="GET">
+        <input type="submit" value="Back to home">
+    </form>
+</body>
+</html>
