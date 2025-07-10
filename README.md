@@ -3,6 +3,7 @@
 A full-stack Blog Application built using Node.js, Express.js, and EJS. This project allowed me to understand the fundamentals of backend development, client-server architecture, and how dynamic web applications work behind the scenes.
 
 🌐 Project Overview
+
 This blog app enables users to:
 
 * Create new blog posts
